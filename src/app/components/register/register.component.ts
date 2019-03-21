@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
   public pageTitle: string;
 
   constructor() {
-    this.pageTitle = 'Register';
+    this.pageTitle = 'Registrarse';
   }
 
   ngOnInit() {
