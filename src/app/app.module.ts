@@ -8,6 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     routing,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders

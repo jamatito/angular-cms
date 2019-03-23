@@ -1,17 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [UserService]
 })
 export class RegisterComponent implements OnInit {
 
   public pageTitle: string;
   public user: User;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.pageTitle = 'Registrarse';
     this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
     /*      public id: number,
@@ -26,11 +28,20 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.userService.test());
   }
 
   onSubmit(form) {
-    console.log(this.user);
-    form.reset();
+    this.userService.register(this.user).subscribe(
+      response => {
+        console.log(response);
+        form.reset();
+      }, error => {
+        console.log(<any> error);
+      }
+    );
+    // console.log(this.user);
+
   }
 
 }
