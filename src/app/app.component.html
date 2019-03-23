@@ -1,6 +1,54 @@
 <div class="container"> <!--Contenedor principal-->
   <br>
-  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary"><!--Barra de Navegación-->
+  <!--  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">&lt;!&ndash;Barra de Navegación&ndash;&gt;
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        NG-BLOG</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Categorías</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-rigth">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/signup']">Registro</a>
+          </li>
+        </ul>
+
+
+        <ul class="navbar-nav navbar-rigth">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="true">
+              Nombre Usuario
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Crear entrada</a>
+              <a class="dropdown-item" href="#">Crear categoría</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Mi perfil</a>
+              <a class="dropdown-item" href="#">Ajustes</a>
+              <a class="dropdown-item" href="#">Salir</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>&lt;!&ndash;Carramos Barra de Navegación&ndash;&gt;-->
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">
       <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
       NG-BLOG</a>
@@ -46,7 +94,8 @@
         </li>
       </ul>
     </div>
-  </nav><!--Carramos Barra de Navegación-->
+  </nav>
+
   <router-outlet></router-outlet>
 
 
