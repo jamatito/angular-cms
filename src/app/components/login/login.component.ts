@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {__param} from 'tslib';
 
 @Component({
   selector: 'app-login',
@@ -16,12 +18,13 @@ export class LoginComponent implements OnInit {
   public token;
   public identity;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {
     this.pageTitle = 'Iniciar Sesión';
     this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
   }
 
   ngOnInit() {
+    this.logout(); /*Se ejecuta simpre pero solo se cierra cuando le llega el parametro sure por la url*/
   }
 
   onSubmit(form) {
@@ -30,14 +33,14 @@ export class LoginComponent implements OnInit {
         if (response.status != 'error') {
           this.status = 'success';
           this.token = response;
-          form.reset();
           this.userService.singnup(this.user, true).subscribe(
             response => {
               this.identity = response;
-              // console.log(this.identity);
-              // console.log(this.token);
+              console.log(this.identity);
+              console.log(this.token);
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
+              form.reset();
             },
             error => {
               console.log(<any> error);
@@ -53,4 +56,20 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  logout() {
+    this.route.params.subscribe(params => {
+      let logout = +params['sure'];
+      if (logout == 1) {
+        localStorage.removeItem('identity');
+        localStorage.removeItem('token');
+        this.identity = null;
+        this.token = null;
+
+        this.router.navigate(['inicio']);
+      }
+    });
+  }
+
+
 }
