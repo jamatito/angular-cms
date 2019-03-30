@@ -12,32 +12,29 @@ export class RegisterComponent implements OnInit {
 
   public pageTitle: string;
   public user: User;
+  public status: string;
 
   constructor(private userService: UserService) {
     this.pageTitle = 'Registrarse';
     this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
-    /*      public id: number,
-      public name: string,
-      public surname: string,
-      public role: string,
-      public email: string,
-      public password: string,
-      public description: string,
-      public image: string*/
-
   }
 
   ngOnInit() {
-    console.log(this.userService.test());
   }
 
   onSubmit(form) {
     this.userService.register(this.user).subscribe(
       response => {
-        console.log(response);
-        form.reset();
+        if (response.status == 'success') {
+          this.status = response.status;
+          form.reset();
+        } else {
+          this.status = 'error';
+        }
+
       }, error => {
         console.log(<any> error);
+        this.status = 'error';
       }
     );
     // console.log(this.user);
