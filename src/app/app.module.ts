@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 
@@ -18,7 +19,8 @@ import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

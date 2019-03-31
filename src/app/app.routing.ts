@@ -4,6 +4,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
+import {UserEditComponent} from './components/user-edit/user-edit.component';
 
 
 
@@ -13,6 +14,7 @@ const  appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: RegisterComponent},
   {path: 'logout/:sure', component: LoginComponent},
+  {path: 'ajustes', component: UserEditComponent},
   {path: '**', component: ErrorComponent}
 
 ];
