@@ -22,6 +22,16 @@ export class UserEditComponent implements OnInit {
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
     this.user = this.identity;
+
+    this.user = new User(
+      this.identity.sub,
+      this.identity.name,
+      this.identity.surname,
+      this.identity.role,
+      this.identity.email, '',
+      this.identity.description,
+      this.identity.image);
+
   }
 
   ngOnInit() {

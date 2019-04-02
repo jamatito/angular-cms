@@ -40,14 +40,9 @@ export class UserService {
 
   update(user, token): Observable<any> {
     let json = JSON.stringify(user);
-    let params = 'json={"name":"joselu",\n' +
-      '"surname":"gf",\n' +
-      '"email":"joseluguisadof@gmail.com",\n' +
-      '"password":"123456"\n' +
-      '}';
+    let params = 'json=' + json;
 
-    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzd' +
-      'WIiOjgsImVtYWlsIjoiamF2aW1hbmdhc3RvcnJlc0BnbWFpbC5jb20iLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6Ik1hbmdhcyIsImlhdCI6MTU1NDAyODU5OSwiZXhwIjoxNTU0NjMzMzk5fQ.w9nQjv4jB3gpbtlt3fxdvRO72CyPQHaB8TXsT27FaZw');
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
 
     return this.http.put(this.url + 'user/update', params, {headers: headers});
   }

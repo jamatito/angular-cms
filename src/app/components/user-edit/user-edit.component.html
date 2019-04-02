@@ -15,7 +15,7 @@
       <div class="col-md-6 mb-3">
         <label for="name">Nombre</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required=""
-               #name="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z]+">
+               #name="ngModel" [(ngModel)]="user.name">
         <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
           El nombre no es válido
         </small>

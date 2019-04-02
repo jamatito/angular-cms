@@ -2,6 +2,10 @@
 
 <div class="col-md-8 order-md-1 mt-3">
   <h4 class="mb-3">{{pageTitle}}</h4>
+  <div class="alert-danger col-md-5" *ngIf="status == 'error'">
+    Login incorrecto
+  </div>
+  <hr>
   <form class="needs-validation" novalidate="" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
     <div class="mb-3">
       <label for="email">Email <span class="text-muted"></span></label>
