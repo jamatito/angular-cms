@@ -1,17 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {appRoutingProviders, routing} from './app.routing';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { ErrorComponent } from './components/error/error.component';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
+import {HomeComponent} from './components/home/home.component';
+import {ErrorComponent} from './components/error/error.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
-
-
+import {UserEditComponent} from './components/user-edit/user-edit.component';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import {AngularFileUploaderModule} from 'angular-file-uploader';
 
 @NgModule({
   declarations: [
@@ -26,11 +26,15 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     BrowserModule,
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
+    AngularFileUploaderModule
   ],
   providers: [
     appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

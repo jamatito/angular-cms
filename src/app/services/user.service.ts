@@ -41,7 +41,7 @@ export class UserService {
   update(user, token): Observable<any> {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
-
+    console.log(json);
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
 
     return this.http.put(this.url + 'user/update', params, {headers: headers});

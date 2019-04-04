@@ -3,13 +3,13 @@
 <div class="col-md-8 order-md-1 mt-3">
   <h4 class="mb-3">{{pageTitle}}</h4>
   <div class="alert-success col-md-5" *ngIf="status == 'success'">
-    Usuario registrado correctamente <a [routerLink]="['/login']">Iniciar Sesión</a>
+    Usuario actualizado con exito
   </div>
 
   <div class="alert-danger col-md-5" *ngIf="status == 'error'">
     Error al actualizar
   </div>
-<hr>
+  <hr>
   <form class="needs-validation" novalidate="" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
     <div class="row">
       <div class="col-md-6 mb-3">
@@ -42,8 +42,9 @@
 
     <div class="form-group">
       <label for="description">Descripción</label>
-      <textarea  type="text" class="form-control" id="description" name="description" placeholder="" value=""
-                 #description="ngModel" [(ngModel)]="user.description"> </textarea>
+      <textarea [froalaEditor]="froalaOptions" type="text" class="form-control" id="description" name="description"
+                placeholder="" value=""
+                #description="ngModel" [(ngModel)]="user.description"> </textarea>
       <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
         Introduce una descripción válida
       </small>
@@ -51,8 +52,17 @@
 
     <div class="form-group">
       <label for="image">Imagen</label>
-      <input  type="file" class="form-control" id="image" name="image" placeholder="" value=""
-                 #image="ngModel" [(ngModel)]="user.image">
+
+      <div *ngIf="identity && identity.image"></div>
+      <img src=""
+      <!--<input  type="file" class="form-control" id="image" name="image" placeholder="" value=""
+                 #image="ngModel" [(ngModel)]="user.image">-->
+      <angular-file-uploader
+        [config]="afuConfig"
+        [resetUpload]=resetVar
+        (ApiResponse)="imageUpload($event)">
+      </angular-file-uploader>
+
     </div>
 
     <div class="mb-3">
@@ -65,6 +75,7 @@
     </div>
 
     <hr class="mb-4">
-    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="userEditForm.invalid">Guardar cambios</button>
+    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="userEditForm.invalid">Guardar cambios
+    </button>
   </form>
 </div>
