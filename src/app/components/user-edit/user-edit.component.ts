@@ -18,16 +18,18 @@ export class UserEditComponent implements OnInit {
   public token;
   public identity;
   public afuConfig;
+  public url;
 
   constructor(private userService: UserService) {
     this.pageTitle = 'Editar perfil';
-   // this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
+    // this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
     this.user = this.identity;
     this.loadUser();
     this.populateOptionsFroala();
     this.populateFileUploader();
+    this.url = global.url;
 
   }
 

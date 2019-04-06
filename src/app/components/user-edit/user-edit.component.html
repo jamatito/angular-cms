@@ -54,7 +54,7 @@
       <label for="image">Imagen</label>
 
       <div *ngIf="identity && identity.image"></div>
-      <img src=""
+      <img src="{{url+'user/getimage/'+identity.image}}"/>
       <!--<input  type="file" class="form-control" id="image" name="image" placeholder="" value=""
                  #image="ngModel" [(ngModel)]="user.image">-->
       <angular-file-uploader
