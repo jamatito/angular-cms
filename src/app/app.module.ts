@@ -12,6 +12,7 @@ import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {UserEditComponent} from './components/user-edit/user-edit.component';
 import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {AngularFileUploaderModule} from 'angular-file-uploader';
+import { CategoryNewComponent } from './components/category-new/category-new.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AngularFileUploaderModule} from 'angular-file-uploader';
     RegisterComponent,
     HomeComponent,
     ErrorComponent,
-    UserEditComponent
+    UserEditComponent,
+    CategoryNewComponent
   ],
   imports: [
     BrowserModule,

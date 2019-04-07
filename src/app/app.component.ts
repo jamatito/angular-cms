@@ -1,6 +1,7 @@
 import {Component, OnInit, DoCheck} from '@angular/core';
 import {UserService} from './services/user.service';
 import {User} from './models/user';
+import {global} from './services/global';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,11 @@ export class AppComponent implements OnInit, DoCheck {
   title = 'Blog de Angular';
   public identity;
   public token;
+  public url;
 
   constructor(private userService: UserService) {
     this.loadUser();
+    this.url = global.url;
   }
 
   ngOnInit(): void {
