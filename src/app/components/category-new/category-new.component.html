@@ -1,0 +1,29 @@
+<div class="col-md-8 order-md-1 mt-3">
+  <h4 class="mb-3">{{pageTitle}}</h4>
+  <!--  <div class="alert-success col-md-5" *ngIf="status == 'success'">
+      Usuario actualizado con exito
+    </div>
+
+    <div class="alert-danger col-md-5" *ngIf="status == 'error'">
+      Error al actualizar
+    </div>-->
+  <hr>
+  <!--Formulario de crear categoria-->
+  <form class="needs-validation" novalidate="" #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)" class="col-md-5">
+
+    <div class="mb-3">
+      <label for="name">Nombre <span class="text-muted"></span></label>
+      <input type="text" class="form-control" id="name"  name="name" placeholder="" required="" #name="ngModel"
+             [(ngModel)]="category.name">
+      <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+        Introduce un nombre válido
+      </small>
+    </div>
+
+    <hr class="mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="loginForm.invalid">Guardar</button>
+
+  </form>
+
+  <br>
+</div>
