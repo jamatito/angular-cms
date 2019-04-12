@@ -4,6 +4,7 @@ import {global} from '../../services/global';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Category} from '../../models/category';
 import {CategoryService} from '../../services/category.service';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-category-new',
@@ -45,12 +46,11 @@ export class CategoryNewComponent implements OnInit {
         }
 
       }, error => {
-        console.log(<any> error);
+        console.log(error as any);
         this.status = 'error';
       }
     );
     // console.log(this.user);
-
   }
 
 }

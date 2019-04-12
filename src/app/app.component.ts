@@ -23,12 +23,11 @@ export class AppComponent implements OnInit, DoCheck {
 
   }
 
-  private loadCategories() {
+  loadCategories() {
     this.categoryService.getCategories().subscribe(
       response => {
         if (response.status == 'success') {
           this.categories = response.categories;
-          console.log(this.categories);
         }
       }, error => {
         console.log(<any> error);
