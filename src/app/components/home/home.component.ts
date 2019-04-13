@@ -43,4 +43,16 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  deletePost(id) {
+    this.postService.delete(id, this.token).subscribe(
+      response => {
+        if (response.status == 'success') {
+          this.getPost();
+        }
+      }, error => {
+        console.log(<any> error);
+      }
+    );
+  }
+
 }
