@@ -12,7 +12,6 @@ import {PostService} from '../../services/post.service';
   providers: [UserService, CategoryService, PostService]
 })
 export class PostEditComponent implements OnInit {
-  public pageTitle: string;
   public identity;
   public token;
   public post: Post;
@@ -20,6 +19,9 @@ export class PostEditComponent implements OnInit {
   public categories;
   public afuConfig;
   public status: string;
+  public pageTitle;
+  public isEdit;
+  public url: string;
 
 
   constructor(
@@ -32,9 +34,9 @@ export class PostEditComponent implements OnInit {
     this.pageTitle = 'Editar una entrada';
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
-    this.populateOptionsFroala();
     this.populateFileUploader();
-
+    this.isEdit = true;
+    this.url = global.url;
   }
 
   ngOnInit() {
@@ -43,15 +45,6 @@ export class PostEditComponent implements OnInit {
     this.getPost();
   }
 
-  private populateOptionsFroala() {
-    this.froalaOptions = {
-      charCounterCount: true,
-      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    };
-  }
 
   private populateFileUploader() {
     this.afuConfig = {
@@ -81,7 +74,10 @@ export class PostEditComponent implements OnInit {
           response => {
             if (response.status == 'success') {
               this.post = response.post;
-              // console.log(this.post);
+              if (this.post.user_id != this.identity.sub) {
+                this.router.navigate(['/inicio']);
+              }
+
             }
           }, error => {
             console.log(<any> error);

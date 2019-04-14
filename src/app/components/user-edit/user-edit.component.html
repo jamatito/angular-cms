@@ -40,7 +40,7 @@
 
     <div class="form-group">
       <label for="description">Descripción</label>
-      <textarea [froalaEditor]="froalaOptions" type="text" class="form-control" id="description" name="description"
+      <textarea type="text" class="form-control" id="description" name="description"
                 placeholder="" value=""
                 #description="ngModel" [(ngModel)]="user.description"> </textarea>
       <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">

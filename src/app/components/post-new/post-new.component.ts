@@ -21,6 +21,7 @@ export class PostNewComponent implements OnInit {
   public categories;
   public afuConfig;
   public status: string;
+  public isEdit;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,8 +33,8 @@ export class PostNewComponent implements OnInit {
     this.pageTitle = 'Crear una entrada';
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
-    this.populateOptionsFroala();
     this.populateFileUploader();
+    this.isEdit = false;
 
   }
 
@@ -42,15 +43,6 @@ export class PostNewComponent implements OnInit {
     this.loadCategories();
   }
 
-  private populateOptionsFroala() {
-    this.froalaOptions = {
-      charCounterCount: true,
-      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    };
-  }
 
   private populateFileUploader() {
     this.afuConfig = {

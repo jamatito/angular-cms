@@ -27,7 +27,6 @@ export class UserEditComponent implements OnInit {
     this.token = this.userService.getToken();
     this.user = this.identity;
     this.loadUser();
-    this.populateOptionsFroala();
     this.populateFileUploader();
     this.url = global.url;
 
@@ -52,15 +51,6 @@ export class UserEditComponent implements OnInit {
     };
   }
 
-  private populateOptionsFroala() {
-    this.froalaOptions = {
-      charCounterCount: true,
-      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-      toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    };
-  }
 
   private loadUser() {
     this.user = new User(

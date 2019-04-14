@@ -20,7 +20,7 @@
 
     <div class="form-group">
       <label for="content">Contenido</label>
-      <textarea [froalaEditor]="froalaOptions" type="text" class="form-control" id="content" name="content"
+      <textarea type="text" class="form-control" id="content" name="content"
                 placeholder="" value=""
                 #content="ngModel" [(ngModel)]="post.content"> </textarea>
       <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
@@ -30,21 +30,26 @@
 
     <div class="form-group">
       <label for="categoryId">Categoría</label>
-      <select name="categoryId" id="categoryId" #categoryId="ngModel" [(ngModel)]="post.category_id" class="form-control">
+      <select name="categoryId" id="categoryId" #categoryId="ngModel" [(ngModel)]="post.category_id"
+              class="form-control">
         <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
       </select>
     </div>
 
 
     <div class="form-group">
-    <label for="image">Imagen</label>
-    <angular-file-uploader
-      [config]="afuConfig"
-      [resetUpload]=resetVar
-      (ApiResponse)="imageUpload($event)">
-    </angular-file-uploader>
+      <label for="image">Imagen</label>
+      <div *ngIf="isEdit && post.image">
+        <img src="{{url + 'post/getimage/' + post.image}}" class="profile_image_edit"/>
+      </div>
 
-</div>
+      <angular-file-uploader
+        [config]="afuConfig"
+        [resetUpload]=resetVar
+        (ApiResponse)="imageUpload($event)">
+      </angular-file-uploader>
+
+    </div>
 
     <hr class="mb-8">
     <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="postNewForm.invalid">Guardar</button>
