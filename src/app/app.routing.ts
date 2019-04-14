@@ -11,6 +11,7 @@ import {PostDetailComponent} from './components/post-detail/post-detail.componen
 import {PostEditComponent} from './components/post-edit/post-edit.component';
 import {CategoryDetailComponent} from './components/category-detail/category-detail.component';
 import {IdentityGuard} from './services/identity.guard';
+import {ProfileComponent} from './components/profile/profile.component';
 
 
 
@@ -23,6 +24,7 @@ const  appRoutes: Routes = [
   {path: 'editar-perfil', component: UserEditComponent, canActivate: [IdentityGuard]},
   {path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
   {path: 'crear-entrada', component: PostNewComponent, canActivate: [IdentityGuard]},
+  {path: 'perfil/:id', component: ProfileComponent, canActivate: [IdentityGuard]},
   {path: 'entrada/:id', component: PostDetailComponent},
   {path: 'editar-entrada/:id', component: PostEditComponent, canActivate: [IdentityGuard]},
   {path: 'categoria/:id', component: CategoryDetailComponent},

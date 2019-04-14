@@ -1,0 +1,33 @@
+<div class="container-fluid mt-3" *ngIf="identity">
+  <div id="user-card">
+    <div class="profile_image float-left" *ngIf="identity && identity.image">
+      <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
+    </div>
+    <div class="">
+      <h1>{{identity.name}}</h1>
+      <p>{{identity.description}}</p>
+    </div>
+  </div>
+  <hr>
+  <div class="alert alert-warning" *ngIf="posts && posts.length == 0">No hay entradas para este usuario</div>
+  <div class="card-columns" *ngIf="posts">
+    <article class="card w-100" *ngFor="let post of posts">
+      <div class="card-header">
+        <h3><a [routerLink]="['/entrada/', post.id]">{{post.title}}</a></h3>
+      </div>
+
+      <div class="card-body">
+        <div class="post-image">
+          <img src="{{ url + 'post/getimage/' +post.image}}" class="w-100"/>
+        </div>
+      </div>
+      <div class="post-buttons mt-3">
+         <span *ngIf="identity && identity.sub == post.user_id">
+        <a [routerLink]="['/editar-entrada/', post.id]" class="btn btn-warning mr-2">Editar</a>
+        <a (click)="deletePost(post.id)" class="btn btn-danger mr-2">Borrar</a>
+        </span>
+      </div>
+
+    </article>
+  </div>
+</div>
