@@ -7,7 +7,7 @@
   <hr>
   <p>{{post.category.name}}</p>
   <hr>
-  <a [routerLink]="['/perfil/', identity.sub]"><p>{{post.user.name}}</p></a>
+  <a [routerLink]="['/perfil/', post.user_id]"><p>{{post.user.name}}</p></a>
   <hr>
   <p>{{post.content}}</p>
 

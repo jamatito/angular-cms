@@ -40,7 +40,7 @@ export class PostEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.post = new Post(1, this.identity.sub, 1, '', '', null, null);
+    this.post = new Post(1, this.identity.id, 1, '', '', null, null);
     this.loadCategories();
     this.getPost();
   }
@@ -74,7 +74,7 @@ export class PostEditComponent implements OnInit {
           response => {
             if (response.status == 'success') {
               this.post = response.post;
-              if (this.post.user_id != this.identity.sub) {
+              if (this.post.user_id != this.identity.id) {
                 this.router.navigate(['/inicio']);
               }
 

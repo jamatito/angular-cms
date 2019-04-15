@@ -9,6 +9,7 @@ export class PostBladeComponent implements OnInit {
   @Input() posts;
   @Input() identity;
   @Input() url;
+  @Input() deletePost;
 
   constructor() {
   }

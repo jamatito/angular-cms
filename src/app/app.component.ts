@@ -16,6 +16,7 @@ export class AppComponent implements OnInit, DoCheck {
   public token;
   public url;
   public categories;
+  public isEdit;
 
   constructor(private userService: UserService, private categoryService: CategoryService) {
     this.loadUser();

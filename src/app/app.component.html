@@ -1,65 +1,164 @@
-<div class="container"> <!--Contenedor principal-->
+<!--<header>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        NG-BLOG</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <img src="assets/images/angular.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      NG-BLOG</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" *ngFor="let category of categories">
-          <a class="nav-link" [routerLink]="['/categoria/', category.id]">{{category.name}}</a>
-        </li>
-      </ul>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
+          </li>
 
-      <ul class="navbar-nav navbar-rigth" *ngIf="!identity">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/signup']">Registro</a>
-        </li>
-      </ul>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="true">Blog</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <div *ngFor="let category of categories">
+                <a class="dropdown-item" [routerLink]="['/categoria/', category.id]">{{category.name}}</a>
+              </div>
+            </div>
+
+        </ul>
 
 
-      <ul class="navbar-nav navbar-rigth" *ngIf="identity && identity.name">
-        <li *ngIf="identity && identity.image" class="nav-item">
-          <div class="profile_image">
-            <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
+        <ul class="navbar-nav navbar-rigth" *ngIf="!identity">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/signup']">Registro</a>
+          </li>
+        </ul>
+
+
+        <ul class="navbar-nav navbar-rigth" *ngIf="identity && identity.name">
+          <li *ngIf="identity && identity.image" class="nav-item">
+            <div class="profile_image">
+              <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="true">
+              {{identity.name + ' ' + identity.surname}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/crear-entrada']">Crear entrada</a>
+              <a class="dropdown-item" [routerLink]="['/crear-categoria']">Crear categoría</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]="['/perfil/', identity.sub]">Mi perfil</a>
+              <a class="dropdown-item" [routerLink]="['/editar-perfil']">Editar perfil</a>
+              <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>-->
+<div class="navbar-container" *ngIf="isEdit">
+  <div class="navbar-web">
+    <ul class="navbar-list">
+      <a [routerLink]="['/inicio']">
+        <li class="navbar-logo"><img src="assets/img/nigmacode.png" alt="logo"></li>
+      </a>
+      <a class="active" [routerLink]="['/inicio']">
+        <li class="navbar-option">Inicio</li>
+      </a>
+      <li class="navbar-option navbar-blog"><span>Blog <i class="fas fa-sort-down"></i></span>
+        <ul class="submenu-blog">
+          <div *ngFor="let category of categories">
+            <li>
+              <a class="submenu-link " [routerLink]="['/categoria/', category.id]">{{category.name}}</a>
+            </li>
           </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="true">
-            {{identity.name + ' ' + identity.surname}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" [routerLink]="['/crear-entrada']">Crear entrada</a>
-            <a class="dropdown-item" [routerLink]="['/crear-categoria']">Crear categoría</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" [routerLink]="['/perfil/', identity.sub]">Mi perfil</a>
-            <a class="dropdown-item" [routerLink]="['/editar-perfil']">Editar perfil</a>
-            <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
+        </ul>
+      </li>
+      <a class="" href="#">
+        <li class="navbar-option">Cursos</li>
+      </a>
+      <li class="navbar-option navbar-blog" *ngIf="identity && identity.name">
+        <span> {{identity.name + ' ' + identity.surname}} <i class="fas fa-sort-down"></i></span>
+        <ul class="submenu-blog">
+          <li>
+            <a class="submenu-link" [routerLink]="['/crear-entrada']">Crear entrada</a>
+          </li>
+          <li>
+            <a class="submenu-link" [routerLink]="['/crear-categoria']">Crear categoría</a>
+          </li>
+          <li>
+            <a class="submenu-link" [routerLink]="['/perfil/', identity.id]">Mi perfil</a>
+          </li>
+          <li>
+            <a class="submenu-link" [routerLink]="['/editar-perfil']">Editar perfil</a>
+          </li>
+          <li>
+            <a class="submenu-link" [routerLink]="['/logout/1']">Salir</a>
+          </li>
+        </ul>
+      </li>
+
+      <div *ngIf="!identity">
+
+        <a class="active" [routerLink]="['/login']">
+          <li class="navbar-option">Iniciar Sesión</li>
+        </a>
+
+        <a class="active" [routerLink]="['/signup']">
+          <li class="navbar-option">Registrarse</li>
+        </a>
+      </div>
+    </ul>
+  </div>
+  <div class="bartop"></div>
+</div>
+
+<div class="navbar-container" *ngIf="!isEdit">
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-auto logo">
+        <a [routerLink]="['/inicio']"><img src="assets/img/logo.png" alt=""></a>
+      </div>
+      <div class="col buscar">
+        <form action="">
+          <div class="row">
+            <div class="col-10">
+              <input type="text" name="" id="" placeholder="Buscar">
+            </div>
+            <div class="col">
+              <button><i class="icon-search"></i></button>
+            </div>
           </div>
-        </li>
-      </ul>
+        </form>
+      </div>
+      <nav class="col menu">
+        <a href="#"><i class="icon-users"></i></a>
+        <a href="#"><i class="icon-bell-alt"></i></a>
+        <a href="#"><i class="icon-chat"></i></a>
+        <a href="#"><img src="assets/img/persona1.png" width="22" height="22" alt=""></a>
+
+      </nav>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <router-outlet></router-outlet>
+</div>
+
+<router-outlet></router-outlet>
 
 <footer>
-  <hr>
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    Juan Ángel Matito
+  <div class="footer">
+    © 2019 Juan Ángel Matito Silvero - <a href="#">Condiciones legales</a>
   </div>
-  <hr>
 </footer>
-</div><!--Cerramos Contenedor-->
+
+
+
