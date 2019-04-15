@@ -52,5 +52,53 @@ header .logo img {
   height: 22px;
 }
 
+header .buscar form input[type="text"] {
+  width: 100%;
+  background: #fff;
+  border: none;
+  font-size: 12px;
+  padding: 0 10px;
+  height: 24px;
+  line-height: 25px;
+  border-radius: 3px 0 0 3px;
+  color: #6d6d6d;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header .buscar form button {
+  width: 100%;
+  background: #fff;
+  border: none;
+  font-size: 11px;
+  padding: 0 10px;
+  height: 24px;
+  line-height: 25px;
+  border-radius: 0 3px 3px 0;
+  color: #6d6d6d;
+  cursor: pointer;
+}
+
+header .buscar form button:hover {
+  background: #099efc;
+  color: #ffffff;
+}
+
+header .menu {
+  padding: 0;
+}
+
+header .menu a {
+  color: rgba(255, 255, 255, .8);
+  text-decoration: none;
+}
+
+header .menu a:hover {
+  color: rgba(255, 255, 255, .1);
+}
+
+header .menu .imagen {
+  padding: 0;
+}
+
 
 
