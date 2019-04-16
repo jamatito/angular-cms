@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="post-buttons mt-3">
-         <span *ngIf="identity && identity.id == post.user_id">
+         <span *ngIf="identity && identity.sub == post.user_id">
         <a [routerLink]="['/editar-entrada/', post.id]" class="btn btn-warning mr-2">Editar</a>
         <a (click)="deletePost(post.id)" class="btn btn-danger mr-2">Borrar</a>
         </span>

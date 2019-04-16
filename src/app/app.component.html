@@ -63,11 +63,12 @@
     </nav>
   </div>
 </header>-->
-<div class="navbar-container" *ngIf="isEdit">
+
+<div class="navbar-container">
   <div class="navbar-web">
     <ul class="navbar-list">
       <a [routerLink]="['/inicio']">
-        <li class="navbar-logo"><img src="assets/img/nigmacode.png" alt="logo"></li>
+        <li class="navbar-logo"><img src="assets/img/logo.png" alt="logo"></li>
       </a>
       <a class="active" [routerLink]="['/inicio']">
         <li class="navbar-option">Inicio</li>
@@ -84,7 +85,12 @@
       <a class="" href="#">
         <li class="navbar-option">Cursos</li>
       </a>
-      <li class="navbar-option navbar-blog" *ngIf="identity && identity.name">
+      <li *ngIf="identity && identity.image" class="navbar-option-r">
+        <div class="profile_image">
+          <img src="{{url+'user/getimage/'+identity.image}}" class=""/>
+        </div>
+      </li>
+      <li class="navbar-option-r navbar-blog" *ngIf="identity && identity.name">
         <span> {{identity.name + ' ' + identity.surname}} <i class="fas fa-sort-down"></i></span>
         <ul class="submenu-blog">
           <li>
@@ -94,7 +100,7 @@
             <a class="submenu-link" [routerLink]="['/crear-categoria']">Crear categoría</a>
           </li>
           <li>
-            <a class="submenu-link" [routerLink]="['/perfil/', identity.id]">Mi perfil</a>
+            <a class="submenu-link" [routerLink]="['/perfil/', identity.sub]">Mi perfil</a>
           </li>
           <li>
             <a class="submenu-link" [routerLink]="['/editar-perfil']">Editar perfil</a>
@@ -106,57 +112,21 @@
       </li>
 
       <div *ngIf="!identity">
-
-        <a class="active" [routerLink]="['/login']">
-          <li class="navbar-option">Iniciar Sesión</li>
+        <a class="active navbar-option-r" [routerLink]="['/signup']">
+          <li class="">Registrarse</li>
         </a>
 
-        <a class="active" [routerLink]="['/signup']">
-          <li class="navbar-option">Registrarse</li>
+        <a class="active navbar-option-r" [routerLink]="['/login']">
+          <li class="">Iniciar Sesión</li>
         </a>
+
+
       </div>
     </ul>
   </div>
   <div class="bartop"></div>
 </div>
 
-<div *ngIf="!isEdit">
-  <header>
-    <div class="container">
-
-      <div class="row">
-        <div class="col-auto d-none d-md-block logo">
-          <a [routerLink]="['/inicio']"><img src="assets/img/logo.png" alt=""></a>
-        </div>
-
-
-        <div class="col-12 col-sm-8 col-lg-6 order-2 order-sm-1 buscar">
-          <form action="">
-            <div class="row no-gutters">
-              <div class="col-10">
-                <input type="text" name="" id="" placeholder="Buscar">
-              </div>
-              <div class="col-2">
-                <button><i class="icon-search"></i></button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-
-
-        <nav class="col-12 col-sm-3 col-lg-2 order-1 order-sm-2 menu d-flex justify-content-between ml-auto mb-2 mb-sm-0">
-          <a href="#"><i class="icon-users"></i></a>
-          <a href="#"><i class="icon-bell-alt"></i></a>
-          <a href="#"><i class="icon-chat"></i></a>
-          <a class="imagen" href="#"><img src="assets/img/persona1.png" width="22" height="22" alt=""></a>
-
-        </nav>
-      </div>
-    </div>
-  </header>
-
-</div>
 
 <router-outlet></router-outlet>
 
