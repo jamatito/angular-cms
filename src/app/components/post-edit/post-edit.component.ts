@@ -40,7 +40,7 @@ export class PostEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.post = new Post(1, this.identity.sub, 1, '', '', null, null);
+    this.post = new Post(1, this.identity.sub, 1, '', '', '', null, null);
     this.loadCategories();
     this.getPost();
   }

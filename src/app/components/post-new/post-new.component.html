@@ -19,6 +19,16 @@
     </div>
 
     <div class="form-group">
+      <label for="content">Descripción</label>
+      <textarea type="text" class="form-control" id="description" name="description"
+                placeholder="" value=""
+                #description="ngModel" [(ngModel)]="post.description"> </textarea>
+      <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+        Introduce una description válida
+      </small>
+    </div>
+
+    <div class="form-group">
       <label for="content">Contenido</label>
       <textarea type="text" class="form-control" id="content" name="content"
                 placeholder="" value=""
