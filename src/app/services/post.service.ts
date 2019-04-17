@@ -49,4 +49,9 @@ export class PostService {
     return this.http.delete(this.url + 'post/' + id, {headers: headers});
   }
 
+  getLastPost(): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.get(this.url + 'posts/getlastposts/', {headers: headers});
+  }
+
 }

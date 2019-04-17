@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPost();
+    // this.getPost();
+    this.getLastPost();
   }
 
   getPost() {
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.posts = response.posts;
-          console.log(this.posts);
+          // console.log(this.posts);
         }
       }, error => {
         console.log(<any> error);
@@ -48,6 +49,19 @@ export class HomeComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.getPost();
+        }
+      }, error => {
+        console.log(<any> error);
+      }
+    );
+  }
+
+  getLastPost() {
+    this.postService.getLastPost().subscribe(
+      response => {
+        if (response.status == 'success') {
+          this.posts = response.posts;
+          console.log(this.posts);
         }
       }, error => {
         console.log(<any> error);
