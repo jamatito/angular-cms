@@ -1,3 +1,4 @@
+<!--
 <div class="col-md-12" *ngIf="!post">
   Cargando...
 </div>
@@ -13,4 +14,37 @@
   <hr>
   <p>{{post.content}}</p>
 
+</div>
+-->
+<div class="wrapper-web" *ngIf="post">
+  <div class="container-fluid post-page">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-space"></div>
+        <h1 class="post-title">{{post.title}}</h1>
+        <br>
+        <a [routerLink]="['/categoria/', post.category.id]"><span
+          class="post-category">{{post.category.name}}</span></a>
+        <div class="row">
+          <div class="col-lg-8 col-md-12">
+            <div class="post-container">
+              <div class="author-post">
+                <div class="author-image">
+                  <img src="{{url+'user/getimage/'+post.user.image}}" class=""/>
+                </div>
+                <div class="author-data align-middle">
+                  <a [routerLink]="['/perfil/', post.user_id]"><span class="author-name">{{post.user.name + ' ' + post.user.surname}}</span></a>
+                </div>
+
+              <div class="post-description fadeIn animated">
+                <p>{{post.description}}</p>
+                <hr>
+                <p>{{post.content}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
