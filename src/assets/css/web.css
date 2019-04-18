@@ -231,7 +231,7 @@ ul.submenu-blog li {
 }
 
 .header-name {
-  color: #f5716c;
+  color: #00a3da;
   border-bottom: 1px solid;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   font-size: 4rem;
@@ -243,7 +243,7 @@ ul.submenu-blog li {
   font-size: 2rem;
   padding: 10px;
   cursor: pointer;
-  border: 3px dashed #f5716c;
+  border: 3px dashed #00a3da;
   font-family: AntonRegular;
   display: inline-block;
   margin-top: 1rem
@@ -251,7 +251,7 @@ ul.submenu-blog li {
 
 .header-read:hover {
   border: 3px dashed #fff;
-  background-color: #f5716c;
+  background-color: #00a3da;
   transition: .3s all
 }
 
@@ -264,8 +264,8 @@ footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: #202125;
-  color: #f5716c;
-  border-top: .3rem solid #f5716c;
+  color: #00a3da;
+  border-top: .3rem solid #00a3da;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -283,8 +283,8 @@ footer {
 }
 
 .footer a:hover {
-  color: #f5716c;
-  border-bottom: 1px solid #f5716c
+  color: #00a3da;
+  border-bottom: 1px solid #00a3da
 }
 
 section {
@@ -324,7 +324,7 @@ section.black-section {
 .separator {
   display: block;
   margin: auto;
-  background-color: #f5716c;
+  background-color: #00a3da;
   width: 6.5rem;
   height: 2px;
   margin-bottom: 3rem
@@ -356,12 +356,12 @@ a:hover {
 }
 
 .last-posts-container:hover h3 {
-  color: #f5716c
+  color: #00a3da
 }
 
 .last-posts-container h3 {
   padding: .5rem;
-  border-bottom: 3px solid #f5716c;
+  border-bottom: 3px solid #00a3da;
   min-height: 80px
 }
 
@@ -375,7 +375,7 @@ a:hover {
 }
 
 .last-posts-container span {
-  color: #f5716c
+  color: #00a3da
 }
 
 .categories-container {
@@ -392,7 +392,7 @@ a:hover {
 
 .category-apart:hover .category-apart-title, .category-apart:hover img {
   transition: .4s all;
-  color: #f5716c;
+  color: #00a3da;
   cursor: pointer
 }
 
@@ -449,7 +449,7 @@ a:hover {
   background-color: #202125;
   text-align: center;
   margin-bottom: 5rem;
-  border-bottom: .3rem solid #f5716c
+  border-bottom: .3rem solid #00a3da
 }
 
 .header-list-title {
@@ -486,7 +486,7 @@ a .posts-list-title {
 
 a .posts-list-title:hover {
   transition: .3s all;
-  color: #f5716c
+  color: #00a3da
 }
 
 .container-fluid.post-page {
@@ -506,12 +506,12 @@ a .posts-list-title:hover {
   display: block;
   width: 60%;
   padding-top: 20px;
-  border-bottom: 3px solid #f5716c
+  border-bottom: 3px solid #00a3da
 }
 
 a .post-category {
   display: inline-block;
-  color: #f5716c;
+  color: #00a3da;
   border-bottom: 1px solid transparent
 }
 
@@ -555,7 +555,7 @@ pre {
   color: #fff;
   padding: .5rem;
   text-align: center;
-  border: 3px solid #f5716c;
+  border: 3px solid #00a3da;
   transition: .4s all
 }
 
@@ -572,7 +572,7 @@ pre {
 
 .icons-container-follow {
   display: inline-block;
-  border: 2px dashed #f5716c;
+  border: 2px dashed #00a3da;
   margin-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem
@@ -585,7 +585,7 @@ pre {
 }
 
 .icons-container-follow a i:hover {
-  color: #f5716c
+  color: #00a3da
 }
 
 .banner-post {
@@ -601,7 +601,7 @@ pre {
 }
 
 .suscription-content {
-  background-color: #f5716c;
+  background-color: #00a3da;
   padding: 1rem;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem
@@ -658,7 +658,7 @@ pre {
 .title-container-comments {
   margin-top: 2rem;
   padding-bottom: 10px;
-  border-bottom: 3px solid #f5716c
+  border-bottom: 3px solid #00a3da
 }
 
 .comment-info {
@@ -695,7 +695,7 @@ pre {
 
 .btn-web {
   font-family: Roboto;
-  background-color: #f5716c;
+  background-color: #00a3da;
   font-weight: 400;
   color: #fff
 }
@@ -711,12 +711,12 @@ pre {
 
 .contact-notice a {
   color: #202125;
-  border-bottom: 1px solid #f5716c;
+  border-bottom: 1px solid #00a3da;
   transition: all .3s
 }
 
 .contact-notice a:hover {
-  color: #f5716c
+  color: #00a3da
 }
 
 .container-modal-suscription {
@@ -737,7 +737,7 @@ pre {
 }
 
 .header-modal-suscription {
-  background-color: #f5716c;
+  background-color: #00a3da;
   padding: .5rem
 }
 
@@ -774,7 +774,7 @@ pre {
 }
 
 .suscription-button.button-modal {
-  background-color: #f5716c
+  background-color: #00a3da
 }
 
 .suscription-button.button-modal:hover {
@@ -801,8 +801,8 @@ pre {
 .title-list-lasts-post {
   padding-bottom: .7rem;
   text-align: center;
-  border-bottom: 1px solid #f5716c;
-  color: #f5716c;
+  border-bottom: 1px solid #00a3da;
+  color: #00a3da;
   font-size: 1.4rem
 }
 
@@ -850,7 +850,7 @@ pre {
   margin-bottom: .5rem;
   line-height: 18px;
   padding: 2px 12px;
-  background-color: #f5716c;
+  background-color: #00a3da;
   border-color: #df6560;
   color: #fff;
   text-shadow: 0 1px 0 #fff;
@@ -904,14 +904,14 @@ pre {
   display: block;
   margin-top: .8rem;
   font-size: 3rem;
-  color: #f5716c
+  color: #00a3da
 }
 
 .error-page {
   display: block;
   margin-top: 30%;
   font-size: 3rem;
-  color: #f5716c
+  color: #00a3da
 }
 
 .title-manteniment {
@@ -950,8 +950,8 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
-  border: 2px dashed #f5716c;
-  color: #f5716c;
+  border: 2px dashed #00a3da;
+  color: #00a3da;
   padding-left: 1rem;
   padding-right: 1rem;
   margin-left: 1rem;
@@ -1001,7 +1001,7 @@ body::-webkit-scrollbar-thumb {
   -moz-box-shadow: 0 2px 10px 4px rgba(0, 0, 0, .04);
   border: 1px solid #d8d8d8;
   text-align: center;
-  color: #f5716c
+  color: #00a3da
 }
 
 .card-category-shop:hover img {
@@ -1092,7 +1092,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container-price {
-  background-color: #f5716c;
+  background-color: #00a3da;
   color: #202125;
   text-align: center
 }
@@ -1122,7 +1122,7 @@ body::-webkit-scrollbar-thumb {
   padding-top: .5rem;
   list-style: none;
   padding-bottom: .5rem;
-  background-color: #f5716c;
+  background-color: #00a3da;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1203,7 +1203,7 @@ body::-webkit-scrollbar-thumb {
 
 .link-course:hover .card-title {
   transition: all .4s;
-  color: #f5716c
+  color: #00a3da
 }
 
 .card-title {
@@ -1245,7 +1245,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .search-post:focus {
-  border-color: #f5716c;
+  border-color: #00a3da;
   transition: all .3s
 }
 
@@ -1356,7 +1356,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-efect {
-  background-color: #f5716c;
+  background-color: #00a3da;
   color: #fff;
   font-size: 2rem;
   padding-left: 3rem;
@@ -1371,7 +1371,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-efect:hover {
-  background-color: #f5716c;
+  background-color: #00a3da;
   transform: translateY(-3px)
 }
 
@@ -1395,7 +1395,7 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   z-index: -1;
   transition: all .4s;
-  background-color: #f5716c
+  background-color: #00a3da
 }
 
 .btn-efect::after:hover {
@@ -2389,7 +2389,7 @@ pre[class*=language-] {
   .hamburger {
     display: block !important;
     position: fixed;
-    background-color: #f5716c;
+    background-color: #00a3da;
     margin: auto;
     z-index: 99;
     bottom: 0;
@@ -2478,7 +2478,7 @@ pre[class*=language-] {
 
   .navbar-mobile-web {
     display: block;
-    background-color: #f5716c;
+    background-color: #00a3da;
     width: 100%
   }
 
@@ -2505,7 +2505,7 @@ pre[class*=language-] {
   }
 
   .category-apart:first {
-    border-bottom: 1px solid #f5716c
+    border-bottom: 1px solid #00a3da
   }
 
   .header-content {
@@ -2563,7 +2563,7 @@ pre[class*=language-] {
     display: block;
     margin-top: 2rem;
     font-size: 2rem;
-    color: #f5716c
+    color: #00a3da
   }
 
   .modal-suscription {

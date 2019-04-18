@@ -1,70 +1,76 @@
-<div class="col-md-8 order-md-1 mt-3">
-  <h4 class="mb-3">{{pageTitle}}</h4>
+<div class="wrapper-web">
+  <div class="container-fluid post-page">
+    <div class="row">
+      <div class="col-md-8 order-md-1 mt-3">
+        <h4 class="mb-3">{{pageTitle}}</h4>
 
-  <div class="alert-danger col-md-5" *ngIf="status == 'error'">
-    Error al crear el post
-  </div>
-  <hr>
-  <!--Formulario de crear categoria-->
-  <form class="needs-validation" novalidate="" #postNewForm="ngForm" (ngSubmit)="onSubmit(postNewForm)"
-        class="col-md-8">
+        <div class="alert-danger col-md-5" *ngIf="status == 'error'">
+          Error al crear el post
+        </div>
+        <hr>
+        <!--Formulario de crear categoria-->
+        <form class="needs-validation" novalidate="" #postNewForm="ngForm" (ngSubmit)="onSubmit(postNewForm)"
+              class="col-md-8">
 
-    <div class="mb-8">
-      <label for="title">Titulo <span class="text-muted"></span></label>
-      <input type="text" class="form-control" id="title" name="title" placeholder="" required="" #title="ngModel"
-             [(ngModel)]="post.title">
-      <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
-        Introduce un título válido
-      </small>
-    </div>
+          <div class="mb-8">
+            <label for="title">Titulo <span class="text-muted"></span></label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="" required="" #title="ngModel"
+                   [(ngModel)]="post.title">
+            <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
+              Introduce un título válido
+            </small>
+          </div>
 
-    <div class="form-group">
-      <label for="content">Descripción</label>
-      <textarea type="text" class="form-control" id="description" name="description"
-                placeholder="" value=""
-                #description="ngModel" [(ngModel)]="post.description"> </textarea>
-      <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
-        Introduce una description válida
-      </small>
-    </div>
+          <div class="form-group">
+            <label for="content">Descripción</label>
+            <textarea type="text" class="form-control" id="description" name="description"
+                      placeholder="" value=""
+                      #description="ngModel" [(ngModel)]="post.description"> </textarea>
+            <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+              Introduce una description válida
+            </small>
+          </div>
 
-    <div class="form-group">
-      <label for="content">Contenido</label>
-      <textarea type="text" class="form-control" id="content" name="content"
-                placeholder="" value=""
-                #content="ngModel" [(ngModel)]="post.content"> </textarea>
-      <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
-        Introduce un contenido válido
-      </small>
-    </div>
+          <div class="form-group">
+            <label for="content">Contenido</label>
+            <textarea type="text" class="form-control" id="content" name="content"
+                      placeholder="" value=""
+                      #content="ngModel" [(ngModel)]="post.content"> </textarea>
+            <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+              Introduce un contenido válido
+            </small>
+          </div>
 
-    <div class="form-group">
-      <label for="categoryId">Categoría</label>
-      <select name="categoryId" id="categoryId" #categoryId="ngModel" [(ngModel)]="post.category_id"
-              class="form-control">
-        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
-      </select>
-    </div>
+          <div class="form-group">
+            <label for="categoryId">Categoría</label>
+            <select name="categoryId" id="categoryId" #categoryId="ngModel" [(ngModel)]="post.category_id"
+                    class="form-control">
+              <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+            </select>
+          </div>
 
 
-    <div class="form-group">
-      <label for="image">Imagen</label>
-      <div *ngIf="isEdit && post.image">
-        <img src="{{url + 'post/getimage/' + post.image}}" class="profile_image_edit"/>
+          <div class="form-group">
+            <label for="image">Imagen</label>
+            <div *ngIf="isEdit && post.image">
+              <img src="{{url + 'post/getimage/' + post.image}}" class="profile_image_edit"/>
+            </div>
+
+            <angular-file-uploader
+              [config]="afuConfig"
+              [resetUpload]=resetVar
+              (ApiResponse)="imageUpload($event)">
+            </angular-file-uploader>
+
+          </div>
+
+          <hr class="mb-8">
+          <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="postNewForm.invalid">Guardar</button>
+
+        </form>
       </div>
-
-      <angular-file-uploader
-        [config]="afuConfig"
-        [resetUpload]=resetVar
-        (ApiResponse)="imageUpload($event)">
-      </angular-file-uploader>
-
     </div>
-
-    <hr class="mb-8">
-    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="postNewForm.invalid">Guardar</button>
-
-  </form>
-
-  <br>
+  </div>
 </div>
+
+

@@ -1,72 +1,77 @@
-<div class="col-md-8 order-md-1 mt-3">
-  <h4 class="mb-3">{{pageTitle}}</h4>
-  <div class="alert-success col-md-5" *ngIf="status == 'success'">
-    Usuario actualizado con exito
-  </div>
-
-  <div class="alert-danger col-md-5" *ngIf="status == 'error'">
-    Error al actualizar
-  </div>
-  <hr>
-  <form class="needs-validation" novalidate="" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
+<div class="wrapper-web">
+  <div class="container-fluid post-page">
     <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="name">Nombre</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required=""
-               #name="ngModel" [(ngModel)]="user.name">
-        <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
-          El nombre no es válido
-        </small>
+      <div class="col-md-8 order-md-1 mt-3">
+        <h4 class="mb-3">{{pageTitle}}</h4>
+        <div class="alert-success col-md-5" *ngIf="status == 'success'">
+          Usuario actualizado con exito
+        </div>
+
+        <div class="alert-danger col-md-5" *ngIf="status == 'error'">
+          Error al actualizar
+        </div>
+        <hr>
+        <form class="needs-validation" novalidate="" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required=""
+                     #name="ngModel" [(ngModel)]="user.name">
+              <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+                El nombre no es válido
+              </small>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="surname">Apellidos</label>
+              <input type="text" class="form-control" id="surname" name="surname" placeholder="" value="" required=""
+                     #surname="ngModel" [(ngModel)]="user.surname" pattern="[a-zA-Z]+">
+              <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+                Introduce un apellido válido
+              </small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email">Email <span class="text-muted"></span></label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="tu@ejemplo.com" required=""
+                   #email="ngModel"
+                   [(ngModel)]="user.email">
+            <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+              Introduce un email válido
+            </small>
+          </div>
+
+
+          <div class="form-group">
+            <label for="description">Descripción</label>
+            <textarea type="text" class="form-control" id="description" name="description"
+                      placeholder="" value=""
+                      #description="ngModel" [(ngModel)]="user.description"> </textarea>
+            <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+              Introduce una descripción válida
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Imagen</label>
+
+            <div *ngIf="identity && identity.image">
+              <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
+            </div>
+            <!--<input  type="file" class="form-control" id="image" name="image" placeholder="" value=""
+                       #image="ngModel" [(ngModel)]="user.image">-->
+            <angular-file-uploader
+              [config]="afuConfig"
+              [resetUpload]=resetVar
+              (ApiResponse)="imageUpload($event)">
+            </angular-file-uploader>
+
+          </div>
+
+          <hr class="mb-4">
+          <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="userEditForm.invalid">Guardar cambios
+          </button>
+        </form>
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="surname">Apellidos</label>
-        <input type="text" class="form-control" id="surname" name="surname" placeholder="" value="" required=""
-               #surname="ngModel" [(ngModel)]="user.surname" pattern="[a-zA-Z]+">
-        <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
-          Introduce un apellido válido
-        </small>
-      </div>
     </div>
-    <div class="mb-3">
-      <label for="email">Email <span class="text-muted"></span></label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="tu@ejemplo.com" required=""
-             #email="ngModel"
-             [(ngModel)]="user.email">
-      <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
-        Introduce un email válido
-      </small>
-    </div>
-
-
-    <div class="form-group">
-      <label for="description">Descripción</label>
-      <textarea type="text" class="form-control" id="description" name="description"
-                placeholder="" value=""
-                #description="ngModel" [(ngModel)]="user.description"> </textarea>
-      <small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
-        Introduce una descripción válida
-      </small>
-    </div>
-
-    <div class="form-group">
-      <label for="image">Imagen</label>
-
-      <div *ngIf="identity && identity.image">
-      <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
-      </div>
-      <!--<input  type="file" class="form-control" id="image" name="image" placeholder="" value=""
-                 #image="ngModel" [(ngModel)]="user.image">-->
-      <angular-file-uploader
-        [config]="afuConfig"
-        [resetUpload]=resetVar
-        (ApiResponse)="imageUpload($event)">
-      </angular-file-uploader>
-
-    </div>
-
-    <hr class="mb-4">
-    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="userEditForm.invalid">Guardar cambios
-    </button>
-  </form>
-  <br>
+  </div>
 </div>
