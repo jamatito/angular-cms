@@ -481,6 +481,7 @@ a:hover {
 a .posts-list-title {
   color: #202125;
   display: inline-block;
+  font-family: AntonRegular;
   font-size: 2.2rem
 }
 
@@ -498,7 +499,8 @@ a .posts-list-title:hover {
 
 .post-title {
   font-size: 3rem;
-  display: inline-block
+  display: inline-block;
+  font-family: AntonRegular;
 }
 
 .post-title:after {
@@ -512,7 +514,8 @@ a .posts-list-title:hover {
 a .post-category {
   display: inline-block;
   color: #00a3da;
-  border-bottom: 1px solid transparent
+  border-bottom: 1px solid transparent;
+  font-family: AntonRegular;
 }
 
 a .post-category:hover {
@@ -2527,7 +2530,9 @@ pre[class*=language-] {
   }
 
   .header-list-title {
-    font-size: 3rem
+    font-size: 3rem;
+    font-family: AntonRegular
+
   }
 
   .header-list {

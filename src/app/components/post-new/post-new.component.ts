@@ -34,6 +34,7 @@ export class PostNewComponent implements OnInit {
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
     this.populateFileUploader();
+    this.populateOptionsFroala();
     this.isEdit = false;
 
   }
@@ -63,6 +64,17 @@ export class PostNewComponent implements OnInit {
       attachPinText: 'Sube tu imagen',
     };
   }
+
+  private populateOptionsFroala() {
+    this.froalaOptions = {
+      charCounterCount: true,
+      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+    };
+  }
+
 
 
   loadCategories() {

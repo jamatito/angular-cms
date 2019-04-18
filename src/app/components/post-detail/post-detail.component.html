@@ -37,9 +37,7 @@
                 </div>
 
               <div class="post-description fadeIn animated">
-                <p>{{post.description}}</p>
-                <hr>
-                <p>{{post.content}}</p>
+              <p [innerHTML]="post.content"></p>
               </div>
             </div>
           </div>

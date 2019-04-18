@@ -33,7 +33,7 @@
 
           <div class="form-group">
             <label for="content">Contenido</label>
-            <textarea type="text" class="form-control" id="content" name="content"
+            <textarea [froalaEditor]="froalaOptions" type="text" class="form-control" id="content" name="content"
                       placeholder="" value=""
                       #content="ngModel" [(ngModel)]="post.content"> </textarea>
             <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">

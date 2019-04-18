@@ -35,6 +35,7 @@ export class PostEditComponent implements OnInit {
     this.identity = this.userService.getIdentity();
     this.token = this.userService.getToken();
     this.populateFileUploader();
+    this.populateOptionsFroala();
     this.isEdit = true;
     this.url = global.url;
   }
@@ -62,6 +63,16 @@ export class PostEditComponent implements OnInit {
       hideResetBtn: true,
       hideSelectBtn: false,
       attachPinText: 'Sube tu imagen',
+    };
+  }
+
+  private populateOptionsFroala() {
+    this.froalaOptions = {
+      charCounterCount: true,
+      toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+      toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
     };
   }
 
