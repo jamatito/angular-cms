@@ -356,7 +356,11 @@ a:hover {
 }
 
 .last-posts-container:hover h3 {
-  color: #00a3da
+  color: #00A3DA;
+  text-decoration: none;
+}
+body a:hover  {
+  text-decoration: none;
 }
 
 .last-posts-container h3 {
@@ -1324,7 +1328,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .author-data span {
-  display: block
+  display: block;
+  color: #23272B
 }
 
 .author-name {
