@@ -43,9 +43,11 @@ export class ProfileComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.getPost();
+          this.router.navigate(['/inicio']);
         }
       }, error => {
         console.log(<any> error);
+        this.router.navigate(['/inicio']);
       }
     );
   }

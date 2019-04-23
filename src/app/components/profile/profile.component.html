@@ -1,91 +1,29 @@
-<!--<div class="wrapper-web">
-  <div class="container-fluid post-page">
-    <div class="row">
-      <div class="container-fluid mt-3" *ngIf="identity">
-        <div id="user-card">
-          <div class="profile_image float-left" *ngIf="identity && identity.image">
-            <img src="{{url+'user/getimage/'+identity.image}}" class="profile_image_edit"/>
-          </div>
-          <div class="">
-            <h1>{{identity.name}}</h1>
-            <p>{{identity.description}}</p>
-          </div>
+<div class="wrapper-web" *ngIf="identity">
+  <div class="header-list">
+    <h1 class="header-list-title">{{identity.name + ' ' +identity.surname}}</h1>
+  </div>
+  <div class="posts-list">
+    <div class="container">
+      <div class="alert alert-warning" *ngIf="posts && posts.length == 0">No hay entradas para este usuario</div>
+      <div class="row post-row" *ngFor="let post of posts">
+        <div class="col-md-5">
+          <a [routerLink]="['/entrada/', post.id]">
+            <img src="{{ url + 'post/getimage/' +post.image}}" class="w-100"/>
+          </a>
         </div>
-        <hr>
-        <div class="alert alert-warning" *ngIf="posts && posts.length == 0">No hay entradas para este usuario</div>
-        <div class="card-columns" *ngIf="posts">
-          <article class="card w-100" *ngFor="let post of posts">
-            <div class="card-header">
-              <h3><a [routerLink]="['/entrada/', post.id]">{{post.title}}</a></h3>
-            </div>
-
-            <div class="card-body">
-              <div class="post-image">
-                <img src="{{ url + 'post/getimage/' +post.image}}" class="w-100"/>
-              </div>
-            </div>
-            <div class="post-buttons mt-3">
+        <div class="col-md-7">
+          <a [routerLink]="['/entrada/', post.id]"><h2 class="posts-list-title">{{post.title}}</h2>
+          </a>
+          <p class="posts-list-description">{{post.description}}</p>
+          <div class="post-buttons mt-3">
          <span *ngIf="identity && identity.sub == post.user_id">
         <a [routerLink]="['/editar-entrada/', post.id]" class="btn btn-warning mr-2">Editar</a>
         <a (click)="deletePost(post.id)" class="btn btn-danger mr-2">Borrar</a>
         </span>
-            </div>
-
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
-
-<div class="container-fluid nav-web">
-  <div class="row">
-    <div class="barra-lateral col-12 col-sm-auto">
-      <div class="logo">
-        <h2>Dashboard</h2>
-      </div>
-      <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
-        <a href="#"><i class="icon-home"></i> <span>Inicio</span></a>
-        <a href="#"><i class="icon-doc-text"></i> <span>Entradas</span></a>
-        <a href="#"><i class="icon-users"></i> <span>Usuarios</span></a>
-        <a href="#"><i class="icon-cog-alt"></i> <span>Configuaración</span></a>
-        <a href="#"><i class="icon-logout"></i> <span>Salir</span></a>
-      </nav>
-    </div>
-    <main class="main col">
-      <div class="row">
-        <div class="columna col-lg-7">
-            <div class="widget nueva_entrada">
-              <h3 class="titulo">Nueva Entrada</h3>
-              <form action="">
-                <input type="text" placeholder="Titulo de la entrada">
-                <textarea placeholder="Descripción"></textarea>
-                <div class="d-flex justify-content-end">
-                  <button><i class="icon icon-edit"></i>Enviar</button>
-                </div>
-              </form>
-            </div>
-        </div>
-        <div class="columna col-lg-5">
-          <div class="widget estadisticas">
-            <h3 class="titulo">Estadisticas</h3>
-            <div class="contenedor d-flex flex-wrap">
-              <div class="caja">
-                <h3>15,236</h3>
-                <p>Visitas</p>
-              </div>
-              <div class="caja">
-                <h3>1,831</h3>
-                <p>Registros</p>
-              </div>
-              <div class="caja">
-                <h3>160,548€</h3>
-                <p>Ingresos</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </div>
+

@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {__param} from 'tslib';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +23,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logout(); /*Se ejecuta simpre pero solo se cierra cuando le llega el parametro sure por la url*/
-  }
+    this.logout();
+}
 
   onSubmit(form) {
     this.userService.singnup(this.user).subscribe(
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
               // form.reset();
-              this.router.navigate(['inicio']);
+              this.router.navigate(['crear-entrada']);
             },
             error => {
               console.log(<any> error);
