@@ -3,6 +3,9 @@ import {PostService} from '../../services/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
 import {global} from '../../services/global';
+import {Comment} from '../../models/comment';
+import {NgForm} from '@angular/forms';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-post-detail',
@@ -15,6 +18,8 @@ export class PostDetailComponent implements OnInit {
   public post;
   public identity;
   public url;
+  public comment: Comment;
+  public commented: boolean;
 
   constructor(
     private postService: PostService,
@@ -24,6 +29,8 @@ export class PostDetailComponent implements OnInit {
   ) {
     this.identity = userService.getIdentity();
     this.url = global.url;
+    this.comment = new Comment(0, '', 0, 0, false);
+    this.commented = false;
   }
 
   ngOnInit() {
@@ -50,4 +57,24 @@ export class PostDetailComponent implements OnInit {
       });
   }
 
+  onSubmit(form) {
+    this.commented = true;
+    this.comment.user_id = this.identity.sub;
+    this.comment.post_id = this.post.id;
+    console.log(this.comment);
+    /*   this.userService.register(this.user).subscribe(
+         response => {
+           if (response.status == 'success') {
+             this.status = response.status;
+             this.router.navigate(['login']);
+           } else {
+             this.status = 'error';
+           }
+
+         }, error => {
+           console.log(<any> error);
+           this.status = 'error';
+         }
+       );*/
+  }
 }

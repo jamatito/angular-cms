@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
               // form.reset();
-              this.router.navigate(['crear-entrada']);
+              this.router.navigate(['inicio']);
             },
             error => {
               console.log(<any> error);
