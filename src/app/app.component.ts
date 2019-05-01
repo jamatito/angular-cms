@@ -3,12 +3,13 @@ import {UserService} from './services/user.service';
 import {User} from './models/user';
 import {global} from './services/global';
 import {CategoryService} from './services/category.service';
+import {CommentService} from './services/comment.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [UserService, CategoryService]
+  providers: [UserService, CategoryService, CommentService]
 })
 export class AppComponent implements OnInit, DoCheck {
   title = 'Blog de Angular';

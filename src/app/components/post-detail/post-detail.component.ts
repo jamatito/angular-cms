@@ -6,6 +6,8 @@ import {global} from '../../services/global';
 import {Comment} from '../../models/comment';
 import {NgForm} from '@angular/forms';
 import {User} from '../../models/user';
+import {CommentService} from '../../services/comment.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-post-detail',
@@ -16,25 +18,30 @@ import {User} from '../../models/user';
 export class PostDetailComponent implements OnInit {
 
   public post;
+  public comments;
   public identity;
+  public token;
   public url;
   public comment: Comment;
   public commented: boolean;
 
   constructor(
     private postService: PostService,
+    private commentService: CommentService,
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService
   ) {
     this.identity = userService.getIdentity();
+    this.token = userService.getToken();
     this.url = global.url;
-    this.comment = new Comment(0, '', 0, 0, false);
+    this.comment = new Comment(0, '', 0, 0, true);
     this.commented = false;
   }
 
   ngOnInit() {
     this.getPost();
+    this.getCommentByPost();
   }
 
   getPost() {
@@ -57,24 +64,44 @@ export class PostDetailComponent implements OnInit {
       });
   }
 
+  getCommentByPost() {
+    this.route.params.subscribe(
+      params => {
+        let id = +params['id'];
+        // console.log(id);
+        this.commentService.getCommentByPost(id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.comments = response.comments;
+              console.log(this.comments);
+            }
+          }, error => {
+            console.log(<any> error);
+            this.router.navigate(['/inicio']);
+
+          }
+        );
+      });
+  }
+
   onSubmit(form) {
-    this.commented = true;
     this.comment.user_id = this.identity.sub;
     this.comment.post_id = this.post.id;
     console.log(this.comment);
-    /*   this.userService.register(this.user).subscribe(
-         response => {
-           if (response.status == 'success') {
-             this.status = response.status;
-             this.router.navigate(['login']);
-           } else {
-             this.status = 'error';
-           }
 
-         }, error => {
-           console.log(<any> error);
-           this.status = 'error';
-         }
-       );*/
+    this.commentService.create(this.token, this.comment).subscribe(
+      response => {
+        if (response.status == 'success') {
+          // this.status = response.status;
+          this.commented = true;
+        } else {
+          // this.status = 'error';
+        }
+
+      }, error => {
+        console.log(<any> error);
+        // this.status = 'error';
+      }
+    );
   }
 }
