@@ -85,6 +85,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   onSubmit(form) {
+    this.commented = true;
     this.comment.user_id = this.identity.sub;
     this.comment.post_id = this.post.id;
     console.log(this.comment);
@@ -93,7 +94,6 @@ export class PostDetailComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           // this.status = response.status;
-          this.commented = true;
         } else {
           // this.status = 'error';
         }

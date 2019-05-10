@@ -8,6 +8,7 @@
           Error al crear el post
         </div>
         <hr>
+        <div class="alert alert-success" *ngIf="insert">Entrada creada con exito</div>
         <!--Formulario de crear categoria-->
         <form class="needs-validation" novalidate="" #postNewForm="ngForm" (ngSubmit)="onSubmit(postNewForm)"
               class="col-md-8">

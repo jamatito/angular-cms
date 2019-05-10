@@ -22,6 +22,7 @@ export class PostNewComponent implements OnInit {
   public afuConfig;
   public status: string;
   public isEdit;
+  public insert: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class PostNewComponent implements OnInit {
     this.populateFileUploader();
     this.populateOptionsFroala();
     this.isEdit = false;
+    this.insert = false;
 
   }
 
@@ -97,6 +99,8 @@ export class PostNewComponent implements OnInit {
   }
 
   onSubmit(form) {
+    // this.router.navigate(['inicio']);
+    this.insert = true;
     console.log(this.token);
     console.log(this.post);
     this.postService.create(this.token, this.post).subscribe(
@@ -104,7 +108,7 @@ export class PostNewComponent implements OnInit {
         if (response.status == 'success') {
           this.post = response.post;
           this.status = response.status;
-          this.router.navigate(['inicio']);
+          // this.router.navigate(['inicio']);
         } else {
           this.status = 'error';
         }
