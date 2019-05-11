@@ -9,6 +9,7 @@ import {User} from '../../models/user';
 import {CommentService} from '../../services/comment.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, SocialUser, AuthService} from 'ng4-social-login';
+import {stringify} from 'querystring';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class PostDetailComponent implements OnInit {
   public url;
   public comment: Comment;
   public commented: boolean;
-  public user: any = SocialUser;
+  public user;
 
   constructor(
     private postService: PostService,
@@ -39,7 +40,7 @@ export class PostDetailComponent implements OnInit {
     this.identity = userService.getIdentity();
     this.token = userService.getToken();
     this.url = global.url;
-    this.comment = new Comment(0, '', 0, 0, true);
+    this.comment = new Comment(0, '', '', 0, 0, true);
     this.commented = false;
   }
 
@@ -90,6 +91,7 @@ export class PostDetailComponent implements OnInit {
 
   onSubmit(form) {
     this.commented = true;
+    this.comment.name = this.identity.name;
     this.comment.user_id = this.identity.sub;
     this.comment.post_id = this.post.id;
     console.log(this.comment);
@@ -98,6 +100,7 @@ export class PostDetailComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           // this.status = response.status;
+          console.log(this.identity);
         } else {
           // this.status = 'error';
         }
@@ -111,9 +114,25 @@ export class PostDetailComponent implements OnInit {
 
   googleLogin() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
-      // this.user = userData;
       console.log(userData);
-      this.identity = userData;
+      this.login();
+      this.identity = this.user;
+      this.identity.sub = this.user.id;
+      console.log(this.identity);
+      this.identity.name = userData.name;
     });
+  }
+
+  login() {
+    this.user = new User(13, '', '', '', 'matito95@gmail.com', '123456', '', '');
+    this.userService.singnup(this.user).subscribe(
+      response => {
+        if (response.status != 'error') {
+          this.token = response;
+        }
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 }
