@@ -111,8 +111,9 @@ export class PostDetailComponent implements OnInit {
 
   googleLogin() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
-     // this.user = userData;
+      // this.user = userData;
       console.log(userData);
+      this.identity = userData;
     });
   }
 }

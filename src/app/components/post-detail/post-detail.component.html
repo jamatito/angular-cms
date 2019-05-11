@@ -54,12 +54,18 @@
             </div>
 
             <div class="comments-container-form" *ngIf="!identity">
+
               <h3 class="title-container-comments">Comenta esta entrada</h3>
-              <button class="btn btn-primary" style="background-color: #C63D2D; border-color: #C63D2D;"
-                      (click)="googleLogin()">
-                <i class="fa fa-google"> Google</i>
-              </button>
-            </div>
+                <article class="card-body">
+                  <a [routerLink]="['/login']" class="float-right btn btn-outline-primary">Iniciar sesión</a>
+                  <h4 class="card-title mb-4 mt-1">Iniciar sesión</h4>
+                  <p>
+                    <a [routerLink]="['/login']" class="btn btn-block btn-outline-info"> <i class="fab"></i>   Iniciar sesión como usuario</a>
+                    <a class="btn btn-block btn-outline-primary" (click)="googleLogin()"> <i class="fab fa-google"></i>   Login via google</a>
+                  </p>
+                  <hr>
+                </article>
+              </div>
           </div>
 
 
