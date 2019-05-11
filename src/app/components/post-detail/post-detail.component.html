@@ -30,7 +30,8 @@
           <div class="col-md-8">
             <div class="comments-container-form" *ngIf="identity">
               <h3 class="title-container-comments">Comenta esta entrada</h3>
-              <form class="comment-form needs-validation" novalidate="" #commentForm="ngForm" (ngSubmit)="onSubmit(commentForm)" *ngIf="!commented">
+              <form class="comment-form needs-validation" novalidate="" #commentForm="ngForm"
+                    (ngSubmit)="onSubmit(commentForm)" *ngIf="!commented">
                 <!--  <div class="form-group">
                     <label for="name">Nombre *</label>
                     <input class="form-control" type="text" name="author" #name="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z]+">
@@ -54,20 +55,21 @@
 
             <div class="comments-container-form" *ngIf="!identity">
               <h3 class="title-container-comments">Comenta esta entrada</h3>
-
-
+              <button class="btn btn-primary" style="background-color: #C63D2D; border-color: #C63D2D;"
+                      (click)="googleLogin()">
+                <i class="fa fa-google"> Google</i>
+              </button>
             </div>
           </div>
-
-
-
 
 
           <!--NG IF-->
           <div class="col-md-8">
             <div class="comments-container">
               <h4 class="title-container-comments">Comentarios</h4>
-              <div class="alert alert-warning" *ngIf="comments && comments.length == 0">No hay comentarios para esta entrada</div>
+              <div class="alert alert-warning" *ngIf="comments && comments.length == 0">No hay comentarios para esta
+                entrada
+              </div>
               <div *ngFor="let c of comments">
                 <div class="comment-box">
                   <p class="comment-name">{{c.user.name}}</p>

@@ -8,6 +8,8 @@ import {NgForm} from '@angular/forms';
 import {User} from '../../models/user';
 import {CommentService} from '../../services/comment.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, SocialUser, AuthService} from 'ng4-social-login';
+
 
 @Component({
   selector: 'app-post-detail',
@@ -24,13 +26,15 @@ export class PostDetailComponent implements OnInit {
   public url;
   public comment: Comment;
   public commented: boolean;
+  public user: any = SocialUser;
 
   constructor(
     private postService: PostService,
     private commentService: CommentService,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private socialAuthService: AuthService
   ) {
     this.identity = userService.getIdentity();
     this.token = userService.getToken();
@@ -103,5 +107,12 @@ export class PostDetailComponent implements OnInit {
         // this.status = 'error';
       }
     );
+  }
+
+  googleLogin() {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
+     // this.user = userData;
+      console.log(userData);
+    });
   }
 }
