@@ -51,7 +51,18 @@
               </form>
               <div class="alert alert-success" *ngIf="commented">Comentario enviado con exito</div>
             </div>
+
+            <div class="comments-container-form" *ngIf="!identity">
+              <h3 class="title-container-comments">Comenta esta entrada</h3>
+
+
+            </div>
           </div>
+
+
+
+
+
           <!--NG IF-->
           <div class="col-md-8">
             <div class="comments-container">
