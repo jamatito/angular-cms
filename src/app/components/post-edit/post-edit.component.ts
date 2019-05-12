@@ -22,6 +22,7 @@ export class PostEditComponent implements OnInit {
   public pageTitle;
   public isEdit;
   public url: string;
+  public insert: boolean;
 
 
   constructor(
@@ -38,6 +39,7 @@ export class PostEditComponent implements OnInit {
     this.populateOptionsFroala();
     this.isEdit = true;
     this.url = global.url;
+    this.insert = false;
   }
 
   ngOnInit() {
