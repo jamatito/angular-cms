@@ -1,27 +1,4 @@
-<!--<div class="container-fluid mt-3" *ngIf="posts">
-  <h1>{{pageTitle}}</h1>
-  <hr>
-  <div class="card-columns">
-    <article class="card w-100" *ngFor="let post of posts">
-      <div class="card-header">
-        <h3><a [routerLink]="['/entrada/', post.id]">{{post.title}}</a></h3>
-      </div>
-
-      <div class="card-body">
-        <div class="post-image">
-          <img src="{{ url + 'post/getimage/' +post.image}}" class="w-100"/>
-        </div>
-      </div>
-      <div class="post-buttons mt-3">
-        <span *ngIf="identity && identity.sub == post.user_id">
-        <a [routerLink]="['/editar-entrada/', post.id]" class="btn btn-warning mr-2">Editar</a>
-        <a (click)="deletePost(post.id)" class="btn btn-danger mr-2">Borrar</a>
-        </span>
-      </div>
-
-    </article>
-  </div>
-</div>-->
+<!-- 
 <div class="hamburger hamburger--slider js-hamburger">
   <div class="hamburger-box">
     <div class="hamburger-inner"></div>
@@ -62,40 +39,16 @@
             </div>
           </a>
         </div>
-      <!--  <div class="col-lg-4 col-md-12">
-          <a href="#">
-            <div class="last-posts-container">
-              <img src="assets/cms/images/efyJeulNZrGypH8q.png" alt="Crear API REST con Laravel">
-              <h3>Crear API REST con Laravel</h3>
-              <span>laravel</span>
-              <p class="description-last-post">El uso de una API es el mecanismo más útil para conectar dos softwares
-                entre sí y trabajar con una base de datos independientemente del lenguaje que utilicemos. En este
-                artículo aprenderemos a cre...</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <a href="#">
-            <div class="last-posts-container">
-              <img src="assets/cms/images/HJFfVik24ZDmgfKz.png" alt="Comprimir archivos en Laravel">
-              <h3>Comprimir archivos en Laravel</h3>
-              <span>laravel</span>
-              <p class="description-last-post">En nuestro artículo anterior llamado Subir archivos en laravel,
-                aprendimos a guardar archivos en nuestra aplicación y hacer uso de ellos.
-                En este artículo vamos aprender a comprimir archivos que t...</p>
-            </div>
-          </a>
-        </div>-->
       </div>
     </div>
   </section>
-  <!--<section id="home-category" class="black-section">
+  <section id="home-category" class="black-section">
     <div class="container-courses">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6 container-courser-text-home">
-            <h3 class="home-courser-text">Haz de tu pasión tu profesión con nuestros cursos de programación</h3>
-            <a href="#" class="btn btn-efect">Ver ahora</a>
+            <h3 class="home-courser-text">Haz de tu pasión tu profesión con nuestros articulos de programación</h3>
+            <a [routerLink]="['/categoria/', 5]" class="btn btn-efect">Ver ahora</a>
           </div>
           <div class="col-md-6">
             <img class="image-curse-home" src="assets/img/curse_nigmacode_home.png" alt="cursos_programacion">
@@ -104,20 +57,7 @@
       </div>
     </div>
   </section>
-  <section class="section-white">
-    <h4 class="section-title">Contacta con nosotros</h4>
-    <div class="separator"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <div id="vuecontact">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-</div>
+</div> -->
 
 
 
